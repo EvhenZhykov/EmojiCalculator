@@ -1,5 +1,7 @@
 ## Emoji Calculator
 
+![ScreenShot](https://github.com/EvhenZhykov/EmojiCalculator/blob/master/EmojiCalculator.png)
+
 #### Installation
 
 For correct installation, your server must have > PHP 7 installed.
