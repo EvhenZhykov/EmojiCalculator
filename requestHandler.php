@@ -1,30 +1,34 @@
 <?php
 
+// require Calculator class
 require_once 'Calculator.php';
 
+// variable for errors
+$error = [];
 if (!isset($_POST['calculatorData'])) {
-    echo 'Sorry, have not data';
+    http_response_code(400);
+    $error[] = ['calculatorData' => 'Sorry, data for calculator is required'];
 } else {
-    if(!$_POST['calculatorData']['firstOperand']){
+    if (!$_POST['calculatorData']['firstOperand']) {
         http_response_code(400);
-        echo 'Field Operand 1 is required';
-        exit;
+        $error[] = ['firstOperand' => 'Field Operand 1 is required'];
     }
-    if(!$_POST['calculatorData']['operator']){
+    if (!$_POST['calculatorData']['secondOperand']) {
         http_response_code(400);
-        echo 'Field Operator is required';
-        exit;
+        $error[] = ['secondOperand' => 'Field Operand 2 is required'];
     }
-    if(!$_POST['calculatorData']['secondOperand']){
-        http_response_code(400);
-        echo 'Field Operand 2 is required';
-        exit;
-    }
-    $calculator = new Calculator();
-    $result = $calculator->calculation(
-        $_POST['calculatorData']['firstOperand'],
-        $_POST['calculatorData']['operator'],
-        $_POST['calculatorData']['secondOperand']
-    );
-    echo $result;
 }
+
+// return errors if exist
+if (!empty($error)) {
+    exit(json_encode($error));
+}
+
+// if all ok, make a calculation
+$calculator = new Calculator();
+$result = $calculator->calculation(
+    $_POST['calculatorData']['firstOperand'],
+    $_POST['calculatorData']['operator'],
+    $_POST['calculatorData']['secondOperand']
+);
+echo $result;
