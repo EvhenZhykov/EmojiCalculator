@@ -8,7 +8,7 @@ To install, do the following:
 - To clone the project to the local machine and enter the project folder
 ```bash
 git clone https://github.com/EvhenZhykov/EmojiCalculator.git
-cd shopify/
+cd EmojiCalculator/
 ```
 - Run the web server
 ```bash
