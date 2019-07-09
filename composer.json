@@ -1,0 +1,13 @@
+{
+    "name": "zhykov/emoji-calculator",
+    "authors": [
+        {
+            "name": "EvhenZhykov",
+            "email": "evhenzhykov@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "phpunit/phpunit": "7.0.0"
+    }
+}
